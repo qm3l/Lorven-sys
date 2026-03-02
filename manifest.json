@@ -1,12 +1,14 @@
 {
   "name": "LORVEN",
   "short_name": "LORVEN",
+  "description": "نظام إدارة متجر لورفين",
   "start_url": "/",
-  "scope": "./",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#243048",
   "orientation": "portrait",
+  "categories": ["business", "shopping"],
   "icons": [
     {
       "src": "icons/icon-192.png",
