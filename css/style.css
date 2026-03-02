@@ -1,0 +1,1275 @@
+
+        /* ========== متغيرات التصميم الأنيق ========= */
+        :root {
+            --bg: #F8F4F0;
+            --text: #243048;
+            --accent-1: #FF8A9C;
+            --accent-2: #A7C7E7;
+            --gradient: linear-gradient(145deg, #FF8A9C, #A7C7E7);
+            --success: #A3D9A5;
+            --warning: #FFD3B5;
+            --danger: #FFB3B3;
+            --gray-50: #F9F6F4;
+            --gray-100: #F0EBE8;
+            --gray-200: #E0D6D0;
+            --gray-500: #8F8A88;
+            --gray-800: #3D3A36;
+            
+            --shadow-sm: 0 3px 8px rgba(44,58,79,0.04);
+            --shadow-md: 0 6px 16px rgba(44,58,79,0.06);
+            --shadow-lg: 0 10px 20px rgba(44,58,79,0.08);
+            
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            
+            --font: 'IBM Plex Sans Arabic', sans-serif;
+            
+            --base-font: 12px;
+            --btn-padding: 8px 12px;
+            --card-padding: 12px;
+            --icon-size: 32px;
+            --stat-icon-size: 28px;
+        }
+
+        body.dark-mode {
+            --bg: #1E1E2A;
+            --text: #F0F0F5;
+            --gray-50: #2A2A36;
+            --gray-100: #33333F;
+            --gray-200: #4A4A55;
+            --gray-500: #B0B0BB;
+            --gray-800: #E0E0E5;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+            transition: background 0.2s, color 0.2s;
+            font-size: var(--base-font);
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 30px rgba(0,0,0,0.02);
+        }
+
+        body.dark-mode .app-container {
+            background: #1E1E2A;
+        }
+
+        /* الهيدر */
+        .page-header {
+            display: flex;
+            align-items: center;
+            padding: 8px 14px;
+            background: white;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        body.dark-mode .page-header {
+            background: #2A2A36;
+            border-bottom-color: #4A4A55;
+        }
+
+        .back-btn {
+            font-size: 18px;
+            color: var(--accent-1);
+            margin-left: 10px;
+            cursor: pointer;
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            background: var(--gray-50);
+            transition: 0.2s;
+        }
+        .back-btn:hover { background: var(--gray-100); }
+        .page-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            flex: 1;
+        }
+     .notification-badge {
+    position: relative;
+    font-size: 24px; /* تكبير حجم الجرس */
+    color: var(--accent-1);
+}
+
+.badge-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 10px;
+    min-width: 18px;
+    text-align: center;
+    border: 2px solid white; /* ليفصله عن الجرس */
+}
+
+             .main-content {
+    flex: 1;
+    height: calc(100vh - 140px); /* اضبط الرقم حسب ارتفاع الهيدر والبار */
+    overflow-y: auto;
+    padding: 14px 14px 100px 14px;
+    background: transparent;
+    scrollbar-width: thin;
+}
+        body.dark-mode .main-content {
+            background: #1E1E2A;
+        }
+
+            .bottom-nav {
+            position: fixed;
+            bottom: 20px; /* رفعه عن الحافة */
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 6 px 10px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(50px); /* تأثير زجاجي */
+            border-radius: 999px; /* زوايا دائرية */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+
+.nav-item {
+    color: #8e8e93; /* لون الأيقونات غير النشطة */
+    text-decoration: none;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.nav-item.active {
+    color: #007aff; /* لون تيليجرام الأزرق */
+    transform: translateY(-3px); /* رفعة بسيطة عند التنشيط */
+}
+
+.nav-item i {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+        body.dark-mode .bottom-nav {
+            background: #2A2A36;
+            border-top-color: #4A4A55;
+        }
+        .nav-btn {
+            background: transparent;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            padding: 6px 10px;
+            border-radius: 24px;
+            color: var(--gray-500);
+            font-size: 10px;
+            font-weight: 500;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .nav-btn i { font-size: 18px; }
+        .nav-btn.active {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 6px 14px rgba(255,138,156,0.25);
+        }
+
+        /* بطاقة الإحصاءات */
+        .stat-card {
+            background: var(--gradient);
+            border-radius: 20px;
+            padding: 14px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-md);
+        }
+        .stat-icon {
+            width: var(--stat-icon-size);
+            height: var(--stat-icon-size);
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: white;
+        }
+        .stat-value { font-size: 20px; font-weight: 700; margin-bottom: 2px; }
+        .stat-label { font-size: 11px; opacity: 0.9; }
+
+        /* الحقول والأزرار */
+        .form-group { margin-bottom: 14px; position: relative; }
+        .form-label {
+            display: block; font-size: 11px; font-weight: 600;
+            margin-bottom: 4px; color: var(--gray-800);
+        }
+        body.dark-mode .form-label {
+            color: var(--gray-500);
+        }
+        .form-control {
+            width: 100%; padding: 10px 14px;
+            background: var(--gray-50);
+            border: 1.5px solid var(--gray-200);
+            border-radius: 22px;
+            font-size: 12px;
+            transition: 0.2s;
+            font-family: var(--font);
+            color: var(--text);
+        }
+        body.dark-mode .form-control {
+            background: #33333F;
+            border-color: #4A4A55;
+            color: #F0F0F5;
+        }
+        .form-control:focus {
+            outline: none; border-color: var(--accent-1);
+            background: white; box-shadow: 0 0 0 4px rgba(255,138,156,0.1);
+        }
+
+        .btn {
+            padding: var(--btn-padding); border-radius: 28px; font-size: 12px;
+            font-weight: 600; border: none; cursor: pointer;
+            transition: 0.2s; display: inline-flex; align-items: center;
+            justify-content: center; gap: 6px;
+        }
+        .btn-primary { background: var(--gradient); color: white; box-shadow: 0 6px 14px rgba(255,138,156,0.25); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,138,156,0.35); }
+        .btn-outline { background: white; border: 1.5px solid var(--accent-1); color: var(--accent-1); }
+        body.dark-mode .btn-outline {
+            background: transparent;
+            color: #FF8A9C;
+        }
+        .btn-outline:hover { background: rgba(255,138,156,0.05); }
+        .btn-wa { background: #25D366; color: white; }
+        .btn-wa:hover { background: #20B859; }
+
+        /* الإجراءات السريعة */
+        .actions-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+            margin: 14px 0;
+        }
+        .action-item {
+            background: white; border: 1px solid var(--gray-200);
+            border-radius: 20px; padding: 10px 4px;
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+            cursor: pointer; transition: 0.2s;
+        }
+        body.dark-mode .action-item {
+            background: #2A2A36;
+            border-color: #4A4A55;
+        }
+        .action-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .action-icon {
+            width: 42px; height: 42px;
+            background: var(--gradient);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 20px;
+            box-shadow: 0 4px 10px rgba(255,138,156,0.3);
+        }
+        .action-label { font-size: 10px; font-weight: 600; color: var(--text); }
+
+        /* منتجات */
+        .products-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .products-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .product-count {
+            background: var(--accent-1);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .products-actions {
+            display: flex;
+            gap: 6px;
+        }
+        .products-actions button {
+            width: 36px; height: 36px;
+            border-radius: 14px;
+            border: 1px solid var(--gray-200);
+            background: white;
+            color: var(--accent-1);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .products-actions button:hover {
+            background: var(--accent-1);
+            color: white;
+        }
+        body.dark-mode .products-actions button {
+            background: #33333F;
+            border-color: #4A4A55;
+            color: #FF8A9C;
+        }
+
+        .products-grid-container {
+            max-height: none;
+            overflow-y: auto;
+            margin-top: 6px;
+            padding-bottom: 10px;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 12px;
+            border: 1px solid var(--gray-100);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            transition: 0.2s;
+        }
+        body.dark-mode .product-card {
+            background: #2A2A36;
+            border-color: #4A4A55;
+        }
+        .product-card.selectable {
+            cursor: pointer;
+        }
+        .product-card.selected {
+            border: 2px solid var(--accent-1);
+            background: rgba(255,138,156,0.05);
+        }
+        body.dark-mode .product-card.selected {
+            background: #3A2A36;
+        }
+        .product-checkbox {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--accent-1);
+            border-radius: 4px;
+            background: white;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+        body.dark-mode .product-checkbox {
+            background: #2A2A36;
+        }
+        .product-card.selected .product-checkbox {
+            display: flex;
+            background: var(--accent-1);
+            border-color: var(--accent-1);
+        }
+        .product-card.selected .product-checkbox::after {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        .selection-mode .product-checkbox {
+            display: flex;
+        }
+        .product-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        /* أزرار الإجراءات الجماعية */
+        .bulk-actions {
+            display: flex;
+            gap: 8px;
+            margin: 10px 0;
+            padding: 8px;
+            background: var(--gray-50);
+            border-radius: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        body.dark-mode .bulk-actions {
+            background: #33333F;
+        }
+        .bulk-actions button {
+            flex: 1;
+            padding: 8px;
+            font-size: 11px;
+        }
+
+        /* فاتورة */
+        .invoice-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: var(--gray-50);
+            border-radius: 18px;
+            margin-bottom: 6px;
+        }
+        body.dark-mode .invoice-item {
+            background: #33333F;
+        }
+        .customer-card, .products-card, .summary-card {
+            background: white;
+            border-radius: 22px;
+            padding: 14px;
+            margin-bottom: 14px;
+            border: 1px solid var(--gray-100);
+        }
+        body.dark-mode .customer-card,
+        body.dark-mode .products-card,
+        body.dark-mode .summary-card {
+            background: #2A2A36;
+            border-color: #4A4A55;
+        }
+
+        /* صفحة الإعدادات */
+    .settings-list {
+    background: white;
+    border-radius: 24px;
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+    /* أزل max-height و overflow-y auto إن كانا موجودين */
+    max-height: none;        /* إضافة */
+    overflow-y: visible;     /* إضافة */
+}
+        body.dark-mode .settings-list {
+            background: #2A2A36;
+            border-color: #4A4A55;
+        }
+        .settings-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--gray-100);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        body.dark-mode .settings-item {
+            border-bottom-color: #4A4A55;
+        }
+        .settings-item:last-child { border-bottom: none; }
+        .settings-item:hover { background: var(--gray-50); }
+        body.dark-mode .settings-item:hover { background: #3A3A48; }
+        .settings-icon {
+            width: 40px; height: 40px; background: rgba(255,138,156,0.08);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            color: var(--accent-1); font-size: 16px; margin-left: 12px;
+        }
+        .settings-content { flex: 1; }
+        .settings-title { font-weight: 700; color: var(--text); margin-bottom: 3px; font-size: 13px; }
+        .settings-subtitle { font-size: 10px; color: var(--gray-500); }
+        .settings-arrow { color: var(--gray-500); font-size: 14px; }
+
+        /* مودالات */
+                .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(44,58,79,0.6); backdrop-filter: blur(6px);
+            align-items: center; justify-content: center; z-index: 2000;
+        }
+        .modal-content {
+            background: white; width: 90%; max-width: 330px;
+            border-radius: 28px; overflow: hidden; box-shadow: var(--shadow-lg);
+            animation: fadeIn 0.25s;
+        }
+        body.dark-mode .modal-content {
+            background: #2A2A36;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        .modal-header {
+            padding: 16px; background: var(--gradient); color: white;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .modal-title { font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+        .modal-close { font-size: 22px; cursor: pointer; opacity: 0.8; }
+        .modal-close:hover { opacity: 1; }
+        .modal-body { padding: 16px; }
+
+        /* Toast */
+        .toast {
+            position: fixed; bottom: 25px; left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--text);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 36px;
+            font-weight: 500;
+            box-shadow: var(--shadow-lg);
+            z-index: 3000;
+            opacity: 0;
+            transition: 0.3s;
+            font-size: 12px;
+            border: 1px solid var(--gray-200);
+        }
+        body.dark-mode .toast {
+            background: #2A2A36;
+            color: var(--text);
+            border-color: var(--accent-1);
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        /* اقتراح العملاء */
+        .datalist-customers {
+            position: absolute; top: 100%; left: 0; right: 0;
+            background: white; border-radius: 18px; box-shadow: var(--shadow-md);
+            max-height: 180px; overflow-y: auto; z-index: 150; display: none;
+        }
+        body.dark-mode .datalist-customers {
+            background: #2A2A36;
+            border: 1px solid #4A4A55;
+        }
+        .datalist-item { padding: 10px 14px; border-bottom: 1px solid var(--gray-100); cursor: pointer; font-size: 11px; }
+        body.dark-mode .datalist-item { border-bottom-color: #4A4A55; color: var(--text); }
+        .datalist-item:hover { background: var(--gray-50); }
+        body.dark-mode .datalist-item:hover { background: #3A3A48; }
+
+        /* نتائج البحث */
+        .search-results {
+            position: absolute; top: 100%; left: 0; right: 0;
+            background: white; border-radius: 18px; box-shadow: var(--shadow-md);
+            max-height: 220px; overflow-y: auto; z-index: 1000;
+            display: none;
+        }
+        body.dark-mode .search-results {
+            background: #2A2A36;
+            border: 1px solid #4A4A55;
+        }
+        .search-result-item {
+            display: flex; align-items: center; padding: 10px;
+            border-bottom: 1px solid var(--gray-100); cursor: pointer;
+            font-size: 11px;
+        }
+        body.dark-mode .search-result-item { border-bottom-color: #4A4A55; color: var(--text); }
+        .search-result-item:hover { background: var(--gray-50); }
+        body.dark-mode .search-result-item:hover { background: #3A3A48; }
+        
+        .invoice-search-item {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid transparent;
+        }
+        body.dark-mode .invoice-search-item {
+            background: #33333F;
+            border-color: #4A4A55;
+        }
+        .invoice-search-item:hover {
+            background: var(--gray-100);
+            border-color: var(--accent-1);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        body.dark-mode .invoice-search-item:hover { background: #3A3A48; }
+
+ /* سجل الفواتير - الوضع الداكن */
+.history-item {
+    transition: 0.2s;
+}
+body.dark-mode .history-item {
+    background: #2A2A36 !important;
+    border-color: #4A4A55 !important;
+    color: var(--text);
+}
+body.dark-mode .history-item:hover {
+    background: #3A3A48 !important;
+}
+body.dark-mode .history-item div:last-child {
+    color: var(--gray-500) !important;
+}
+       
+/* تحسين Recent Invoices في الوضع الداكن */
+.recent-invoice-item {
+    transition: 0.2s;
+}
+body.dark-mode .recent-invoice-item {
+    background-color: #2A2A36 !important;
+    border-bottom-color: #4A4A55 !important;
+}
+body.dark-mode .recent-invoice-item:hover {
+    background-color: #3A3A48 !important;
+}
+/* تعديل لون النص للتاريخ واسم العميل */
+body.dark-mode .recent-invoice-item div[style*="color: var(--gray-500)"] {
+    color: #B0B0BB !important;
+}
+        /* تأثير التلاشي عند الانتقال */
+     .page-slide {
+    animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+    from { transform: translateX(20px); opacity: 0.5; }
+    to { transform: translateX(0); opacity: 1; }
+}
+/* تصغير الدائرة في صفحة التقارير */
+#categoryChart {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto;
+    display: block;
+}
+/* أزرار الإجراءات الجماعية في سطر واحد */
+.bulk-actions {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    margin: 10px 0;
+    padding: 6px;
+    background: var(--gray-50);
+    border-radius: 30px;
+}
+.bulk-actions button {
+    padding: 6px 2px;
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 20px;
+}
+/* تحسين مظهر شريط الفئات */
+.products-header + div {
+    margin-bottom: 20px;
+    padding: 8px 0;
+}
+/* ضمان عدم التصاق الأزرار */
+.pagination-controls {
+    margin-top: 20px;
+    clear: both;
+}
+/* شريط الفئات القابل للتمرير */
+.categories-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 6px;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+.categories-bar::-webkit-scrollbar {
+    height: 4px;
+}
+.categories-bar::-webkit-scrollbar-thumb {
+    background: var(--accent-1);
+    border-radius: 10px;
+}
+/* تغيير لون رقم الكمية في الفاتورة بالوضع الداكن */
+body.dark-mode .invoice-item span {
+    color: #ffffff !important;
+}
+body.dark-mode .invoice-item div[style*="background:white"] {
+    background: #3a3a48 !important;
+}
+/* ========== أيقونة الذكاء الاصطناعي العائمة ========== */
+.ai-floating-icon {
+    position: fixed;
+    bottom: 80px; /* فوق القائمة السفلية بقليل */
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #FF6B8B, #2E86DE);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    border: 2px solid white;
+}
+
+.ai-floating-icon:hover {
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 12px 28px rgba(255,107,139,0.4);
+}
+
+/* ========== نافذة الدردشة ========== */
+.ai-chat-window {
+    position: fixed;
+    bottom: 150px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10000;
+    border: 1px solid rgba(255,107,139,0.3);
+    animation: slideIn 0.3s ease;
+}
+
+.ai-chat-window.open {
+    display: flex;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.ai-chat-header {
+    background: linear-gradient(135deg, #FF6B8B, #2E86DE);
+    color: white;
+    padding: 16px 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 5px;
+}
+
+.ai-chat-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background: #f9f9fc;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ai-message {
+    display: flex;
+    gap: 8px;
+    max-width: 85%;
+}
+
+.ai-user-message {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.ai-avatar {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #FF6B8B, #2E86DE);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.ai-bubble {
+    background: white;
+    padding: 12px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    border: 1px solid #e0e0e0;
+}
+
+.ai-user-message .ai-bubble {
+    background: #2E86DE;
+    color: white;
+    border: none;
+}
+
+.ai-chat-input-area {
+    display: flex;
+    padding: 16px;
+    background: white;
+    border-top: 1px solid #eee;
+    gap: 8px;
+}
+
+.ai-chat-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #f0f0f0;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.ai-chat-input:focus {
+    outline: none;
+    border-color: #FF6B8B;
+}
+
+.ai-send-btn {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #FF6B8B, #2E86DE);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.ai-send-btn:hover {
+    transform: scale(1.05);
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 480px) {
+    .ai-chat-window {
+        width: calc(100% - 40px);
+        right: 20px;
+        left: 20px;
+        height: 60vh;
+        bottom: 100px;
+    }
+}
+/* إضافة مسافة كبيرة أسفل قائمة الإعدادات */
+.settings-list::after {
+    content: '';
+    display: block;
+    height: 120px; /* مسافة كافية لدفع المحتوى لأعلى */
+    width: 100%;
+}
+/* زر رفع الملفات في الدردشة */
+.ai-attach-btn {
+    width: 40px;
+    height: 40px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    color: #666;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+.ai-attach-btn:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+body.dark-mode .ai-attach-btn {
+    background: #3a3a48;
+    color: #ccc;
+}
+body.dark-mode .ai-attach-btn:hover {
+    background: #4a4a58;
+}
+
+/* معاينة الملف داخل الفقاعة */
+.ai-bubble img {
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 12px;
+    margin-top: 5px;
+    border: 2px solid #fff;
+}
+.ai-bubble .file-preview {
+    background: #f0f0f0;
+    padding: 8px 12px;
+    border-radius: 18px;
+    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+body.dark-mode .ai-bubble .file-preview {
+    background: #3a3a48;
+    color: #ddd;
+}
+/* تأثير hover والظل للبطاقات الإحصائية */
+.stat-card.hover-effect {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.stat-card.hover-effect:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* تحسين مظهر action-item بشكل عام (اختياري) */
+.action-item {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.action-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -5px rgba(255,138,156,0.3);
+}
+/* الوضع الداكن لنافذة الدردشة */
+body.dark-mode .ai-chat-window {
+    background: #2A2A36;
+    border-color: #4A4A55;
+}
+
+body.dark-mode .ai-chat-header {
+    background: linear-gradient(135deg, #FF6B8B, #2E86DE); /* احتفظ بالتدرج أو غيره حسب الرغبة */
+}
+
+body.dark-mode .ai-chat-messages {
+    background: #1E1E2A;
+}
+
+body.dark-mode .ai-bubble {
+    background: #2A2A36;
+    color: #F0F0F5;
+    border-color: #4A4A55;
+}
+
+body.dark-mode .ai-user-message .ai-bubble {
+    background: #2E86DE;
+    color: white;
+}
+
+body.dark-mode .ai-chat-input-area {
+    background: #2A2A36;
+    border-top-color: #4A4A55;
+}
+
+body.dark-mode .ai-chat-input {
+    background: #33333F;
+    border-color: #4A4A55;
+    color: #F0F0F5;
+}
+
+body.dark-mode .ai-chat-input:focus {
+    border-color: #FF6B8B;
+}
+
+body.dark-mode .ai-attach-btn {
+    background: #33333F;
+    color: #B0B0BB;
+}
+
+body.dark-mode .ai-attach-btn:hover {
+    background: #4A4A55;
+    color: white;
+}
+/* تحسين زر الإرسال */
+.ai-send-btn {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #FF6B8B, #2E86DE);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(255,107,139,0.3);
+}
+.ai-send-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(255,107,139,0.4);
+}
+.ai-send-btn:active {
+    transform: scale(0.95);
+}
+
+/* تحسين زر المرفقات */
+.ai-attach-btn {
+    width: 44px;
+    height: 44px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    color: #666;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+body.dark-mode .ai-attach-btn {
+    background: #3A3A48;
+    color: #B0B0BB;
+}
+.ai-attach-btn:hover {
+    background: #e0e0e0;
+    color: #FF6B8B;
+}
+/* الوضع العادي (RTL) - الأيقونة على اليمين */
+.ai-floating-icon {
+    right: 20px;
+    left: auto;
+}
+
+/* عند تغيير اللغة إلى الإنجليزية (LTR) */
+body[dir="ltr"] .ai-floating-icon {
+    right: auto;
+    left: 20px;
+}
+
+/* أو إذا كنت تستخدم كلاس على body بدلاً من dir */
+body.english-mode .ai-floating-icon {
+    right: auto;
+    left: 20px;
+}
+/* نافذة الدردشة في الوضع العادي (RTL) */
+.ai-chat-window {
+    right: 20px;
+    left: auto;
+}
+
+/* في الوضع الإنجليزي (LTR) */
+body[dir="ltr"] .ai-chat-window {
+    right: auto;
+    left: 20px;
+}
+
+/* عكس اتجاه النصوص داخل الدردشة إذا لزم الأمر */
+body[dir="ltr"] .ai-chat-input-area {
+    direction: ltr;
+}
+
+body[dir="ltr"] .ai-message.ai-user-message {
+    /* يمكن عكس ترتيب العناصر إذا أردت */
+}
+
+/* حركة نبض خفيفة للأيقونات المهمة */
+@keyframes gentle-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* حركة دوران بطيئة */
+@keyframes slow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* حركة اهتزاز لطيفة */
+@keyframes gentle-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+/* حركة ارتداد */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+/* ========== تحسينات الوضع الداكن للتعديلات الجديدة ========== */
+
+/* شاشة القفل */
+body.dark-mode #pinScreen > div {
+    background: #2A2A36 !important;
+    color: var(--text);
+}
+
+body.dark-mode #pinScreen input {
+    background: #33333F !important;
+    color: white !important;
+    border-color: #4A4A55 !important;
+}
+
+body.dark-mode #pinScreen .fa-lock {
+    color: white !important;
+}
+
+/* مودال نسيت كلمة المرور */
+body.dark-mode #forgotPinModal > div,
+body.dark-mode div[style*="z-index: 10002"] > div {
+    background: #2A2A36 !important;
+    color: var(--text);
+}
+
+body.dark-mode #forgotPinModal input,
+body.dark-mode div[style*="z-index: 10002"] input {
+    background: #33333F !important;
+    color: white !important;
+    border-color: #FF8A9C !important;
+}
+
+body.dark-mode #forgotPinModal .fa-shield-alt,
+body.dark-mode div[style*="z-index: 10002"] .fa-key {
+    color: #FF8A9C !important;
+}
+
+body.dark-mode #securityError {
+    color: #FF6B6B !important;
+}
+
+/* رسائل Toast */
+body.dark-mode .toast {
+    background: #2A2A36;
+    color: var(--text);
+    border-color: #FF8A9C;
+}
+
+/* تحسين النصوص في المودالات */
+body.dark-mode .modal-body p,
+body.dark-mode .modal-body div:not([class*="btn"]) {
+    color: var(--text);
+}
+
+/* تحسين أزرار الإلغاء في المودالات */
+body.dark-mode button[style*="border: 1px solid #8F8A88"] {
+    border-color: #4A4A55 !important;
+    color: var(--text) !important;
+    background: transparent !important;
+}
+
+body.dark-mode button[style*="border: 1px solid #8F8A88"]:hover {
+    background: #3A3A48 !important;
+}
+/* تعديل ألوان النصوص الثابتة في الوضع الداكن */
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, 
+body.dark-mode h4, body.dark-mode h5, body.dark-mode h6,
+body.dark-mode p, body.dark-mode span:not([class*="btn"]),
+body.dark-mode div:not([class*="btn"]):not([class*="stat"]):not([class*="action"]) {
+    color: var(--text) !important;
+}
+
+/* تعديل لون الخلفية البيضاء في البطاقات */
+body.dark-mode div[style*="background: white"] {
+    background: #2A2A36 !important;
+}
+
+/* تعديل لون النص في الأماكن المحددة بلون ثابت */
+body.dark-mode [style*="color: #243048"] {
+    color: #F0F0F5 !important;
+}
+
+body.dark-mode [style*="color: #8F8A88"] {
+    color: #B0B0BB !important;
+}
+/* ========== إصلاح مشكلة الوضع الداكن للحقول والنصوص ========== */
+
+/* حقل إدخال PIN في شاشة القفل */
+body.dark-mode #pinScreen input {
+    background: #33333F !important;
+    color: white !important;
+    border: 1px solid #4A4A55 !important;
+}
+
+/* حقل الإجابة في مودال نسيت كلمة المرور */
+body.dark-mode #forgotSecurityAnswer,
+body.dark-mode [id*="forgotSecurityAnswer"] {
+    background: #33333F !important;
+    color: white !important;
+    border: 2px solid #FF8A9C !important;
+}
+
+/* النص الإرشادي داخل الحقل (placeholder) */
+body.dark-mode input::placeholder {
+    color: #B0B0BB !important;
+    opacity: 1 !important;
+}
+
+/* الحقول في جميع المودالات */
+body.dark-mode .modal input,
+body.dark-mode .modal textarea,
+body.dark-mode .modal select {
+    background: #33333F !important;
+    color: white !important;
+    border-color: #4A4A55 !important;
+}
+
+/* التعليمات والنصوص الصغيرة */
+body.dark-mode small,
+body.dark-mode .form-label,
+body.dark-mode label:not([class*="btn"]) {
+    color: #B0B0BB !important;
+}
+
+/* الخلفيات البيضاء في المودالات */
+body.dark-mode div[style*="background: white"] {
+    background: #2A2A36 !important;
+    color: #F0F0F5 !important;
+}
+
+/* النصوص التي لونها #8F8A88 في الوضع العادي */
+body.dark-mode [style*="color: #8F8A88"] {
+    color: #B0B0BB !important;
+}
+
+/* النصوص التي لونها #243048 في الوضع العادي */
+body.dark-mode [style*="color: #243048"] {
+    color: #F0F0F5 !important;
+}
+
+/* خلفية منطقة الإدخال */
+body.dark-mode div[style*="background: #F8F4F0"] {
+    background: #33333F !important;
+}
+
+/* النص المعروض للرمز المؤقت */
+body.dark-mode div[style*="font-weight: 700"][style*="font-size: 40px"] {
+    color: #FF8A9C !important;
+}
