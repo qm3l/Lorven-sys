@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lorven-cache-v1';
+const CACHE_NAME = 'lorven-cache-v2'; // تحديث الإصدار لتنشيط التغييرات
 const urlsToCache = [
   './',
   './index.html',
@@ -19,18 +19,39 @@ const urlsToCache = [
   './icons/icon-512.png'
 ];
 
-// تثبيت الـ service worker وتخزين الملفات
+// 1. مرحلة التثبيت: حفظ الملفات في الكاش
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => {
+      console.log('Caching essential assets...');
+      return cache.addAll(urlsToCache);
+    })
   );
+  self.skipWaiting(); // تفعيل النسخة الجديدة فوراً
 });
 
-// استراتيجية: نحاول من الشبكة، وإذا فشلنا نستخدم الكاش
+// 2. مرحلة التنشيط: حذف الكاش القديم
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== CACHE_NAME) {
+            console.log('Deleting old cache:', cache);
+            return caches.delete(cache);
+          }
+        })
+      );
+    })
+  );
+  return self.clients.claim(); // السيطرة على الصفحات المفتوحة فوراً
+});
+
+// 3. استراتيجية جلب البيانات: الشبكة أولاً، ثم الكاش في حال انقطاع الإنترنت
 self.addEventListener('fetch', event => {
   event.respondWith(
-    fetch(event.request)
-      .catch(() => caches.match(event.request))
+    fetch(event.request).catch(() => {
+      return caches.match(event.request);
+    })
   );
 });
