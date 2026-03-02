@@ -4,10 +4,12 @@
   "description": "نظام إدارة متجر لورفين - إدارة المبيعات والمخزون والعملاء",
   "start_url": "/",
   "scope": ".",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#f8f4f0",
   "theme_color": "#243048",
   "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
   "icons": [
     {
       "src": "icons/icon-192.png",
@@ -40,7 +42,29 @@
       "purpose": "maskable"
     }
   ],
-  "dir": "auto",
+  "shortcuts": [
+    {
+      "name": "فاتورة جديدة",
+      "short_name": "فاتورة",
+      "description": "إنشاء فاتورة مبيعات جديدة بسرعة",
+      "url": "/#new-invoice",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "المخزون",
+      "short_name": "المخزون",
+      "description": "إدارة المنتجات والمخزون",
+      "url": "/#inventory",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "التقارير",
+      "short_name": "التقارير",
+      "description": "عرض تقارير المبيعات والأرباح",
+      "url": "/#reports",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
   "categories": [
     "business",
     "shopping"
